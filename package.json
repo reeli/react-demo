@@ -1,0 +1,36 @@
+{
+  "name": "babel-jsx-demo",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "watchify -v -d src/app.jsx -o public/bundle.js",
+    "build": "browserify src/app.jsx -o public/bundle.js",
+    "server": "browser-sync start --server public",
+    "start": "npm run build && npm run server"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^0.13.3"
+  },
+  "devDependencies": {
+    "babel-runtime": "^5.4.3",
+    "babelify": "^6.1.1",
+    "browser-sync": "^2.4.0",
+    "browserify": "^9.0.3",
+    "watchify": "^2.5.0"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "stage": 0,
+          "optional": [
+            "runtime"
+          ]
+        }
+      ]
+    ]
+  }
+}
